@@ -1,0 +1,17 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "useBuiltIns": "entry" 
+    }],
+    "@babel/preset-react",
+    "@babel/preset-typescript",
+    ["@emotion/babel-preset-css-prop", {
+      "autoLabel": true,
+      "labelFormat": "[local]-[filename]"
+    }]
+  ],
+  "plugins": [
+    "lodash",
+    "react-hot-loader/babel"
+  ]
+}

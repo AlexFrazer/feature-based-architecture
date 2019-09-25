@@ -1,0 +1,27 @@
+{
+  "name": "@totemic/utils",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Alex Frazer <afrazer@zulily.com>",
+  "homepage": "https://github.com/AlexFrazer/feature-based-architecture/tree/master/packages/utils#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "publishConfig": {
+    "registry": "http://nexus.sea.corp.zulily.com:9081/repository/zulily-npmjs-repository-group/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexFrazer/feature-based-architecture.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "tsc",
+    "build:watch": "tsc --watch --incremental"
+  },
+  "bugs": {
+    "url": "https://github.com/AlexFrazer/feature-based-architecture/issues"
+  },
+  "devDependencies": {
+    "typescript": "^3.6.3"
+  }
+}

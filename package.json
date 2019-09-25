@@ -1,0 +1,23 @@
+{
+  "name": "feature-based-architecture",
+  "version": "1.0.0",
+  "description": "This is an example of feature-based architecture with lerna",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexFrazer/feature-based-architecture.git"
+  },
+  "keywords": [],
+  "author": "EMP CI <emp@zulily.com> (https://gitlab.corp.zulily.com/groups/emp)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexFrazer/feature-based-architecture/issues"
+  },
+  "homepage": "https://github.com/AlexFrazer/feature-based-architecture#readme",
+  "devDependencies": {
+    "lerna": "^3.16.4"
+  }
+}
