@@ -16,7 +16,7 @@
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
     "build": "tsc",
-    "build:watch": "tsc --watch --incremental"
+    "dev": "tsc --watch --incremental"
   },
   "bugs": {
     "url": "https://github.com/AlexFrazer/feature-based-architecture/issues"
