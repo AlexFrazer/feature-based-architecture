@@ -3,12 +3,12 @@ import axios from 'axios';
 import * as actions from './actions';
 
 const api = axios.create({
-  baseURL: 'https://api.github.com/v3/',
+  baseURL: 'https://api.github.com/',
 });
 
 function* requestReposSaga() {
   try {
-    const { data } = yield call(() => api.get('AlexFrazer/repos'));
+    const { data } = yield call(() => api.get('/users/AlexFrazer/repos'));
     yield put(actions.requestRepositoriesSuccess(data));
   } catch (e) {
     yield put(actions.requestRepositoriesFailure(e));

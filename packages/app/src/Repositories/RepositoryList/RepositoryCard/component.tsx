@@ -5,13 +5,11 @@ interface Props {
   readonly id: string;
 }
 
-export default function RepositoryCard({
-  name,
-  id,
-}) {
+export default function RepositoryCard({ name, id, html_url }) {
   return (
     <div key={id}>
-      <h1>{name}</h1>
+      <h3>{name}</h3>
+      <a href={html_url}>View Repository</a>
     </div>
   );
 }
