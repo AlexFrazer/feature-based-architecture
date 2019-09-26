@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/AlexFrazer/feature-based-architecture#readme",
   "devDependencies": {
-    "lerna": "^3.16.4"
+    "lerna": "^3.16.4",
+    "prettier": "^1.18.2"
   }
 }

@@ -1,10 +1,6 @@
-import { put, takeLatest, delay, call } from 'redux-saga/effects';
-import axios from 'axios';
+import { put, takeLatest, call } from 'redux-saga/effects';
+import api from '~/api';
 import * as actions from './actions';
-
-const api = axios.create({
-  baseURL: 'https://api.github.com/',
-});
 
 function* requestReposSaga() {
   try {
