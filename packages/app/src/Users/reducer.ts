@@ -24,6 +24,16 @@ export default reduceReducers(
     handleAction(actions.requestUsersFailure, state => {
       state.loading = false;
     }),
+    handleAction(actions.requestUser, state => {
+      state.loading = true;
+    }),
+    handleAction(actions.requestUserSuccess, (state, { payload }) => {
+      state.loading = false;
+      state.data[payload.login] = payload;
+    }),
+    handleAction(actions.requestUserFailure, state => {
+      state.loading = false;
+    }),
   ],
   initialState,
 );

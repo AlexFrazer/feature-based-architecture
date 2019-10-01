@@ -8,14 +8,16 @@ import { ConnectedRouter } from 'connected-react-router';
 import Repositories from './Repositories';
 import Users from './Users';
 import Home from './Home';
+import { PersistGate } from 'redux-persist/integration/react';
 
-const store = createStore();
+const { store, persistor } = createStore();
 
 function Styles() {
   return (
     <Global
       styles={css`
-        html, body {
+        html,
+        body {
           padding: 0;
           margin: 0;
           color: #ffffff;
@@ -33,23 +35,25 @@ function Styles() {
 export default hot(function App() {
   return (
     <React.Suspense fallback={<div />}>
-      <StoreProvider store={store}>
-        <Styles />
-        <ConnectedRouter history={history}>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/repos">
-              <Repositories />
-            </Route>
-            <Route path="/users">
-              <Users />
-            </Route>
-            <Redirect to="/repos" />
-          </Switch>
-        </ConnectedRouter>
-      </StoreProvider>
+      <PersistGate loading={null} persistor={persistor}>
+        <StoreProvider store={store}>
+          <Styles />
+          <ConnectedRouter history={history}>
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/repos">
+                <Repositories />
+              </Route>
+              <Route path="/users">
+                <Users />
+              </Route>
+              <Redirect to="/repos" />
+            </Switch>
+          </ConnectedRouter>
+        </StoreProvider>
+      </PersistGate>
     </React.Suspense>
   );
 });

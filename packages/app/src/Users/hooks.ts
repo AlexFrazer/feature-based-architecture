@@ -10,6 +10,7 @@ export function useUserActions() {
       bindActionCreators(
         {
           requestUsers: actions.requestUsers,
+          requestUser: actions.requestUser,
         },
         dispatch,
       ),

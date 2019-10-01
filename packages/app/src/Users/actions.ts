@@ -11,3 +11,14 @@ export const [
   (users: Array<any>) => users,
   (e: Error) => e,
 );
+
+export const [
+  requestUser,
+  requestUserSuccess,
+  requestUserFailure,
+] = createAsyncActions(
+  'user',
+  ({ userId }: { userId: string }) => ({ userId }),
+  (users: any) => users,
+  (e: Error) => e,
+);

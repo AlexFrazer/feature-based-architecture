@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { all, call, put, takeLatest } from 'redux-saga/effects';
 import api from '~/api';
 import * as actions from './actions';
 
@@ -11,6 +11,20 @@ function* requestUsersSaga() {
   }
 }
 
+function* requestUserSaga({
+  payload: { userId },
+}: ReturnType<typeof actions.requestUser>) {
+  try {
+    const { data } = yield call(() => api.get(`/users/${userId}`));
+    yield put(actions.requestUserSuccess(data));
+  } catch (e) {
+    yield put(actions.requestUserFailure(e));
+  }
+}
+
 export default function* usersSaga() {
-  yield takeLatest(actions.requestUsers, requestUsersSaga);
+  yield all([
+    takeLatest(actions.requestUser, requestUserSaga),
+    takeLatest(actions.requestUsers, requestUsersSaga),
+  ]);
 }

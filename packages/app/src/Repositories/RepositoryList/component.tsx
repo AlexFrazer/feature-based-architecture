@@ -6,14 +6,21 @@ import { useRepoActions } from '../hooks';
 import RepositoryCard from './RepositoryCard';
 import useQueryParams from '~/utils/useQueryParams';
 
-export default function RepositoryList() {
-  const { sort = 'created', direction = 'desc' } = useQueryParams();
+function useRequestRepos() {
   const { requestRepositories } = useRepoActions();
+  const { sort = 'created', direction = 'desc' } = useQueryParams();
+  React.useEffect(() => {
+    requestRepositories({
+      sort,
+      direction,
+    });
+  }, [sort, direction, requestRepositories]);
+}
+
+export default function RepositoryList() {
+  useRequestRepos();
   const loading = useSelector(selectLoading);
   const repos = useSelector(selectRepos);
-  React.useEffect(() => {
-    requestRepositories({ sort, direction });
-  }, [requestRepositories, sort, direction]);
 
   return (
     <List loading={loading} data={repos}>

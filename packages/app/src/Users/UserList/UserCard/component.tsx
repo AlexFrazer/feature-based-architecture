@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 interface Props {
   readonly id: string;
@@ -16,7 +17,7 @@ export default function UserCard({ id, avatar_url, html_url, login }: Props) {
         </div>
         <div style={{ flex: 1, marginLeft: 20 }}>
           <h3>{login}</h3>
-          <a href={html_url}>View Profile</a>
+          <Link to={`/users/${id}`}>View Profile</Link>
         </div>
       </div>
     </div>
